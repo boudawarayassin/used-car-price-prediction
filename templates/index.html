@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Used Car Price Predictor</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <h1>🚗 Used Car Price Predictor</h1>
+            <p>Machine Learning powered vehicle price estimation</p>
+        </header>
+
+
+        <main class="card">
+
+            <form id="predictionForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="manufacturer">Manufacturer</label>
+                        <input
+                            type="text"
+                            id="manufacturer"
+                            name="manufacturer"
+                            placeholder="e.g. ford"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="region">Region</label>
+                        <input
+                            type="text"
+                            id="region"
+                            name="region"
+                            placeholder="e.g. sacramento"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input
+                            type="text"
+                            id="model"
+                            name="model"
+                            placeholder="e.g. f-150"
+                            required>
+                      </div>
+
+
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input
+                            type="number"
+                            id="year"
+                            name="year"
+                            placeholder="e.g. 2018"
+                            min="1950"
+                            max="2026"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="odometer">Odometer (miles)</label>
+                        <input
+                            type="number"
+                            id="odometer"
+                            name="odometer"
+                            placeholder="e.g. 75000"
+                            min="0"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <select id="condition" name="condition">
+                            <option value="">Select condition</option>
+                            <option value="new">New</option>
+                            <option value="like new">Like New</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                            <option value="salvage">Salvage</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="cylinders">Cylinders</label>
+                        <select id="cylinders" name="cylinders">
+                            <option value="">Select cylinders</option>
+                            <option value="3 cylinders">3 cylinders</option>
+                            <option value="4 cylinders">4 cylinders</option>
+                            <option value="5 cylinders">5 cylinders</option>
+                            <option value="6 cylinders">6 cylinders</option>
+                            <option value="8 cylinders">8 cylinders</option>
+                            <option value="10 cylinders">10 cylinders</option>
+                            <option value="12 cylinders">12 cylinders</option>
+                            <option value="other">other</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="fuel">Fuel</label>
+                        <select id="fuel" name="fuel">
+                            <option value="">Select fuel</option>
+                            <option value="gas">Gas</option>
+                            <option value="diesel">Diesel</option>
+                            <option value="electric">Electric</option>
+                            <option value="hybrid">Hybrid</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="title_status">Title Status</label>
+                        <select id="title_status" name="title_status">
+                            <option value="">Select title status</option>
+                            <option value="clean">Clean</option>
+                            <option value="rebuilt">Rebuilt</option>
+                            <option value="salvage">Salvage</option>
+                            <option value="lien">Lien</option>
+                            <option value="missing">Missing</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="transmission">Transmission</label>
+                        <select id="transmission" name="transmission">
+                            <option value="">Select transmission</option>
+                            <option value="automatic">Automatic</option>
+                            <option value="manual">Manual</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="drive">Drive</label>
+                        <select id="drive" name="drive">
+                            <option value="">Select drive</option>
+                            <option value="4wd">4WD</option>
+                            <option value="fwd">FWD</option>
+                            <option value="rwd">RWD</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="type">Vehicle Type</label>
+                        <select id="type" name="type">
+                            <option value="">Select type</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="truck">Truck</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="coupe">Coupe</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="wagon">Wagon</option>
+                            <option value="van">Van</option>
+                            <option value="convertible">Convertible</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="paint_color">Paint Color</label>
+                        <select id="paint_color" name="paint_color">
+                            <option value="">Select color</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="silver">Silver</option>
+                            <option value="blue">Blue</option>
+                            <option value="red">Red</option>
+                            <option value="grey">Grey</option>
+                            <option value="green">Green</option>
+                            <option value="brown">Brown</option>
+                            <option value="custom">Custom</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            placeholder="e.g. ca"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="lat">Latitude</label>
+                        <input
+                            type="number"
+                            step="any"
+                            id="lat"
+                            name="lat"
+                            placeholder="e.g. 36.7783"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="long">Longitude</label>
+                        <input
+                            type="number"
+                            step="any"
+                            id="long"
+                            name="long"
+                            placeholder="e.g. -119.4179"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <button type="submit" id="predictButton">
+                    Predict Price
+                </button>
+
+            </form>
+
+
+            <div id="result" class="result hidden">
+                <h2>Estimated Price</h2>
+                <p id="prediction"></p>
+            </div>
+
+
+            <div id="error" class="error hidden">
+                <p id="errorMessage"></p>
+            </div>
+
+        </main>
+
+
+        <footer>
+            <p>
+                Used Car Price Prediction • Machine Learning Project
+            </p>
+        </footer>
+
+    </div>
+
+
+    <script src="/static/app.js"></script>
+
+</body>
+
+</html>

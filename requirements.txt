@@ -1,0 +1,13 @@
+pandas==2.2.3
+numpy==2.5.3
+scikit-learn==1.9.1
+category-encoders==2.11.1
+joblib==1.6.0
+
+matplotlib
+seaborn
+
+fastapi
+uvicorn
+jinja2
+pydantic
